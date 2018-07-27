@@ -71,7 +71,7 @@ public class AutoCompleteTextView extends AppCompatAutoCompleteTextView {
     }
 
     public void saveInputCache(@NonNull String input) {
-        saveInputCache(input, false);
+        saveInputCache(input, true);
     }
 
     public void saveInputCache(@NonNull String input, boolean notify) {
