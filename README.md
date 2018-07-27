@@ -1,6 +1,6 @@
 # 直接上效果图
 ![ScreenCapture](https://github.com/rhinoSp/LibAutoCompleteTextView/blob/master/ScreenCapture/ScreenCapture.gif)
-# LibBaseUi
+# AutoCompleteTextView
 The library of AutoCompleteTextView.
 
 # How to
