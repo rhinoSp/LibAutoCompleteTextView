@@ -45,6 +45,7 @@ public class AutoCompleteTextView extends AppCompatAutoCompleteTextView implemen
     public OnFocusChangeListener mOnFocusChangeListener;
     public boolean mHasFocus;
 
+
     public AutoCompleteTextView(Context context) {
         super(context);
         init(context, null);
