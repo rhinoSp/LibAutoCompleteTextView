@@ -23,9 +23,6 @@ dependencies {
 }
 ```
 
-# LibPwdGesture
-The library of password gesture.
-
 # Question / Contact Me / Hire Me
 
 Please feel free to ping me at rhino_luo@163.com.
