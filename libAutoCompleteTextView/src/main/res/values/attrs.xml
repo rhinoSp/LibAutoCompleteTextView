@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AutoCompleteTextView">
+        <attr name="actv_input_cache_key" format="string" />
+        <attr name="actv_right_drawable_clear_style" format="boolean" />
+    </declare-styleable>
+
+</resources>
+

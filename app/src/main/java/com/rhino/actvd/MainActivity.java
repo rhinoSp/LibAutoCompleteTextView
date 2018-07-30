@@ -16,11 +16,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mAutoCompleteTextView = findViewById(R.id.et_test);
-        mAutoCompleteTextView.setInputCacheKey("xxxx");
         findViewById(R.id.bt_save).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAutoCompleteTextView.saveInputCache(mAutoCompleteTextView.getText().toString());
+                mAutoCompleteTextView.saveInputCache();
             }
         });
 
