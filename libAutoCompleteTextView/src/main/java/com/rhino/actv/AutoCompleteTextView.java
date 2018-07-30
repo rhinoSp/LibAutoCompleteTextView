@@ -33,6 +33,8 @@ public class AutoCompleteTextView extends AppCompatAutoCompleteTextView implemen
 
     public final static String DEFAULT_INPUT_CACHE_FILE_NAME = "AutoCompleteTextView_input_cache";
     public final static int DEFAULT_RIGHT_DRAWABLE_COLOR = 0x4A000000;
+    public final static int DEFAULT_INPUT_CACHE_MAX_COUNT = 10;
+    public int mInputCacheMaxCount = DEFAULT_INPUT_CACHE_MAX_COUNT;
     public String mInputCacheKey;
     public SharedPreferences mSharedPreferences;
     public ArrayAdapter<String> mInputCacheAdapter;
@@ -62,6 +64,8 @@ public class AutoCompleteTextView extends AppCompatAutoCompleteTextView implemen
         if (null != attrs) {
             TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.AutoCompleteTextView);
             mInputCacheKey = typedArray.getString(R.styleable.AutoCompleteTextView_actv_input_cache_key);
+            mInputCacheMaxCount = typedArray.getInt(R.styleable.AutoCompleteTextView_actv_max_input_cache_count,
+                    DEFAULT_INPUT_CACHE_MAX_COUNT);
             mRightDrawableClearStyle = typedArray.getBoolean(R.styleable.AutoCompleteTextView_actv_right_drawable_clear_style,
                     true);
             typedArray.recycle();
@@ -89,8 +93,8 @@ public class AutoCompleteTextView extends AppCompatAutoCompleteTextView implemen
         if (event.getAction() == MotionEvent.ACTION_UP) {
             if (getCompoundDrawables()[2] != null) {
                 Rect clearDrawableRect = getCompoundDrawables()[2].getBounds();
-                int x = (int) (getWidth() - event.getX());
-                int y = (int) (event.getY() - (getHeight() - clearDrawableRect.height()) / 2);
+                int x = (int) ((getWidth() - event.getX()) * 0.8f);
+                int y = (int) ((event.getY() - (getHeight() - clearDrawableRect.height()) / 2) * 0.8f);
                 boolean clicked = clearDrawableRect.contains(x, y);
                 if (clicked && mRightDrawableClickListener != null) {
                     mRightDrawableClickListener.onClick(this);
@@ -185,6 +189,10 @@ public class AutoCompleteTextView extends AppCompatAutoCompleteTextView implemen
         }
     }
 
+    public void setInputCacheMaxCount(int count) {
+        this.mInputCacheMaxCount = count;
+    }
+
     public void setInputCacheKey(@NonNull String key) {
         mInputCacheKey = key;
         checkParamValid();
@@ -210,6 +218,11 @@ public class AutoCompleteTextView extends AppCompatAutoCompleteTextView implemen
         checkParamValid();
         if (TextUtils.isEmpty(input) || mInputCacheList.contains(input)) {
             return;
+        }
+        if (mInputCacheList.size() >= mInputCacheMaxCount) {
+            List<String> list = mInputCacheList.subList(0, mInputCacheMaxCount - 1);
+            mInputCacheList = new ArrayList<>();
+            mInputCacheList.addAll(list);
         }
         mInputCacheList.add(0, input);
         if (notify) {

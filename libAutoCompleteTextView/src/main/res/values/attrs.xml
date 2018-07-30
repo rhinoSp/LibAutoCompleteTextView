@@ -3,6 +3,7 @@
 
     <declare-styleable name="AutoCompleteTextView">
         <attr name="actv_input_cache_key" format="string" />
+        <attr name="actv_input_cache_max_count" format="integer" />
         <attr name="actv_right_drawable_clear_style" format="boolean" />
     </declare-styleable>
 
