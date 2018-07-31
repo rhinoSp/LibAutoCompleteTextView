@@ -223,8 +223,11 @@ public class AutoCompleteTextView extends AppCompatAutoCompleteTextView implemen
 
     public void saveInputCache(@NonNull String input, boolean notify) {
         checkParamValid();
-        if (TextUtils.isEmpty(input) || mInputCacheList.contains(input)) {
+        if (TextUtils.isEmpty(input)) {
             return;
+        }
+        if (mInputCacheList.contains(input)) {
+            mInputCacheList.remove(input);
         }
         if (mInputCacheList.size() >= mInputCacheMaxCount) {
             List<String> list = mInputCacheList.subList(0, mInputCacheMaxCount - 1);
