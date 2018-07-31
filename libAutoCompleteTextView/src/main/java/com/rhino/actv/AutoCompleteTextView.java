@@ -151,6 +151,10 @@ public class AutoCompleteTextView extends AppCompatAutoCompleteTextView implemen
         return this.mRightDrawable;
     }
 
+    public void setRightDrawable(Drawable drawable) {
+        this.mRightDrawable = drawable;
+    }
+
     public void setRightDrawableVisible(boolean visible) {
         Drawable rightDrawable = visible ? mRightDrawable : null;
         setCompoundDrawables(getCompoundDrawables()[0],
