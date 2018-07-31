@@ -11,7 +11,7 @@
         android:layout_height="50dp"
         android:layout_margin="20dp"
         app:actv_input_cache_key="xxxx"
-        app:actv_max_input_cache_count="5"
+        app:actv_input_cache_max_count="5"
         app:actv_right_drawable_clear_style="true"/>
 
     <Button

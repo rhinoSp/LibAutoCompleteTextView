@@ -65,7 +65,7 @@ public class AutoCompleteTextView extends AppCompatAutoCompleteTextView implemen
         if (null != attrs) {
             TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.AutoCompleteTextView);
             mInputCacheKey = typedArray.getString(R.styleable.AutoCompleteTextView_actv_input_cache_key);
-            mInputCacheMaxCount = typedArray.getInt(R.styleable.AutoCompleteTextView_actv_max_input_cache_count,
+            mInputCacheMaxCount = typedArray.getInt(R.styleable.AutoCompleteTextView_actv_input_cache_max_count,
                     DEFAULT_INPUT_CACHE_MAX_COUNT);
             mRightDrawableClearStyle = typedArray.getBoolean(R.styleable.AutoCompleteTextView_actv_right_drawable_clear_style,
                     true);
