@@ -195,7 +195,9 @@ public class AutoCompleteTextView extends AppCompatAutoCompleteTextView implemen
     }
 
     public void setInputCacheMaxCount(int count) {
-        this.mInputCacheMaxCount = count;
+        if (count > 0) {
+            this.mInputCacheMaxCount = count;
+        }
     }
 
     public void setInputCacheKey(@NonNull String key) {
